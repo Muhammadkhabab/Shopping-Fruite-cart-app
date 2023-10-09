@@ -71,20 +71,48 @@ class _ProductListScreenState extends State<ProductListScreen> {
                 itemCount: productName.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Card(
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            SizedBox(
-                              height: 100,
-                              width: 100,
-                              child: Image.asset(productImage[index]),
-                            ),
-                            Text(productName[index])
-                          ],
-                        )
-                      ],
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              SizedBox(
+                                height: 100,
+                                width: 100,
+                                child: Image.asset(productImage[index]),
+                              ),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(productName[index]),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  Text(
+                                    productUnit[index] +
+                                        " "
+                                            r"$" +
+                                        productPrice[index].toString(),
+                                    style: const TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w500),
+                                  )
+                                ],
+                              )
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   );
                 },
