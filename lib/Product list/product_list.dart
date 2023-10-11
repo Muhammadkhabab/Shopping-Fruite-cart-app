@@ -9,7 +9,6 @@ class ProductListScreen extends StatefulWidget {
 }
 
 class _ProductListScreenState extends State<ProductListScreen> {
-  @override
   List<String> productName = [
     'Mango',
     'Banana',
@@ -90,24 +89,44 @@ class _ProductListScreenState extends State<ProductListScreen> {
                               const SizedBox(
                                 width: 10,
                               ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(productName[index]),
-                                  const SizedBox(
-                                    height: 10,
-                                  ),
-                                  Text(
-                                    productUnit[index] +
-                                        " "
-                                            r"$" +
-                                        productPrice[index].toString(),
-                                    style: const TextStyle(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w500),
-                                  )
-                                ],
+                              Expanded(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(productName[index]),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    Text(
+                                      // ignore: prefer_interpolation_to_compose_strings
+                                      productUnit[index] +
+                                          " " r"$" +
+                                          productPrice[index].toString(),
+                                      style: const TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                    Align(
+                                      alignment: Alignment.centerRight,
+                                      child: Container(
+                                        height: 35,
+                                        width: 100,
+                                        decoration: BoxDecoration(
+                                            color: Colors.green,
+                                            borderRadius:
+                                                BorderRadius.circular(10)),
+                                        child: const Center(
+                                          child: Text(
+                                            'Add cart',
+                                            style:
+                                                TextStyle(color: Colors.white),
+                                          ),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
                               )
                             ],
                           )
